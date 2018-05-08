@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_161"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/dubbo-2.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/javassist-3.22.0-GA.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/spring-aop-5.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/spring-beans-5.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/spring-context-5.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/spring-core-5.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/spring-expression-5.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse/libs/zookeeper-3.4.10.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
