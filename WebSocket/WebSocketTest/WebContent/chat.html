@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>趣味聊天室</title>
+		<style type="text/css">
+			/* 处理浏览器适配问题 */
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			a {
+				text-decoration: none;
+			}
+			body {
+				font-size: 14px;
+				font-family: "微软雅黑";
+			}
+			.wrap {
+				width: 700px; 
+				position: relative; 
+				top: 50px;
+				left: calc(50% - 350px);
+				display: flex;
+				flex-direction:column;
+				background: #F8F8F9;
+				border-radius: 8px;
+				user-select:none;
+				-webkit-user-select:none;
+			}
+			
+			/* header start */
+			.wrap
+			.header {
+				height: 80px;
+				background: linear-gradient(200deg,#d6d1f1,#EE60E1);
+				text-align: center;
+				line-height: 80px;
+				border-radius: 8px 8px 0 0;
+				cursor: move;
+			}
+			.wrap 
+			.header 
+			span {
+				font-size: 28px;
+				letter-spacing: 2px;
+				color: #f1f1f1;
+			}
+			.wrap 
+			.header 
+			#close_btn {
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				width: 20px;
+				height: 20px;
+				background: url(img/close.png) no-repeat center;
+				border-radius: 8px;
+			}
+			/* header end */
+			
+			/* main start */
+			.wrap 
+			.main {
+				display: flex;
+				height: 300px;
+			}
+			
+			/* left start */
+			.wrap 
+			.left {
+				width: 260px;
+				border-right: 1px solid #e1e1e1;
+			}
+			.wrap 
+			.time {
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+			}
+			.wrap 
+			.time 
+			.time_bg {
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				vertical-align: middle;
+				cursor: pointer;
+			}
+			.wrap 
+			.time 
+			span {
+				font-size: 14px;
+				vertical-align: middle;
+				color: #4EA9E9;
+				cursor: pointer;
+			}
+			.wrap 
+			.left 
+			.left_people a{height: 25px;text-align: center;line-height: 25px;margin-top: 3px;display: block;}
+			/* left end */
+			
+			/* right start */
+			.wrap 
+			.right {
+				width: 700px;
+				background: #f9f9f9;
+			}
+			.wrap 
+			.right 
+			.right_record {
+				height: 260px;
+				padding-bottom: 10px;
+				overflow: auto;
+			}
+			.right 
+			.right_record 
+			.record_item {
+				width: 600px;
+				margin: 0 auto;
+			}
+			.right_record 
+			.record_item 
+			p {
+				text-align: center;
+				font-size: 13px;
+				color: #9A9797;
+			}
+			.record_item 
+			.record_item_txt 
+			p {
+				text-align: left;
+				margin: 5px 0 0 10px;
+			}
+			.record_item 
+			.record_item_txt 
+			.avatar {
+				margin-left: 5px;
+				color: #AC4BFD;
+				font-size: 12px;
+			}
+			.record_item 
+			.record_item_txt 
+			.txt {
+				color: #f1f1f1;
+			}
+			.record_item_txt 
+			p 
+			span {
+				border-radius: 10px;
+				text-align: left;
+				background: skyblue;
+				padding: 3px 5px;
+				font-size: 14px;
+				color: #E833F6;
+			}
+			/* right end */
+			
+			/* content bottom start */
+			.wrap 
+			.content {
+				height: 140px;
+				border-top: 1px solid #e1e1e1;
+				display: flex;
+				flex-direction:column;
+			}
+			.wrap 
+			.content 
+			.content_tool {
+				height: 30px;
+				border-bottom: 1px solid #e1e1e1;
+				display: flex;
+				line-height: 41px;
+			}
+			.content 
+			.content_tool 
+			div {
+				margin-left: 20px;
+			}
+			.content 
+			.content_tool 
+			.bg {
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				cursor: pointer;
+			}			
+			.wrap 
+			.content 
+			.content_text {
+				height: 90px;
+				padding: 5px;
+				outline: none;
+			}
+			.wrap 
+			.content 
+			.content_btn {
+				display: flex;
+				justify-content:space-between;
+				line-height: 30px;
+				border-top: 1px solid #e1e1e1;
+			}
+			.content 
+			.content_btn 
+			.content_btn_text {
+				font-size: 12px;
+				letter-spacing: 1px;
+				line-height: 35px;
+				color: #7E7D7D;
+				margin-left: 10px;
+			}
+			.content 
+			.content_btn 
+			.btns {
+				width: 140px;
+				display: flex;
+				margin-top: 2px;
+			}
+			.wrap 
+			.content 
+			.btn_item {
+				width: 80px;
+				height: 25px;
+				text-align: center;
+				line-height: 25px;
+				border: 1px solid #c1c1c1;
+				color: #313333;
+				margin-right: 5px;
+				letter-spacing: 1px;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			/* content bottom end */			
+		</style>
+	</head>
+	<body>
+		<!-- <canvas id="dot"></canvas> -->
+		<div class="wrap">
+			<div class="header">
+				<span>趣味聊天室</span>
+				<a href="javascript:void(0)" id="close_btn"></a>
+			</div>
+			<div class="main">
+				<!-- left -->
+				<!-- right -->
+				<div class="right">
+					<div class="time">
+						<i class="time_bg" style="background: url(img/clock.png) no-repeat;"></i>
+						<span>聊天记录</span>
+					</div>
+					<!-- 聊天记录 -->
+					<div class="right_record" id="outputMessage"></div>
+				</div>
+			</div>
+			
+			<!-- content tool/txt -->
+			<div class="content">
+				<div class="content_tool">
+					<div class="tool_font">
+						<i class="bg" style="background: url(img/font.png) no-repeat;"></i>
+					</div>
+					<div class="tool_emjo">
+						<i class="bg" style="background: url(img/emjo.png) no-repeat;"></i>
+					</div>
+				</div>
+				
+				<div class="content_text" contenteditable="true" id="inputMessage"></div>
+				
+				<div class="content_btn">
+					<div class="content_btn_text"><i>自己的DIY聊天室</i></div>
+					<div class="btns">
+						<div class="send btn_item" onclick="getMessage();">
+							<span>发送</span><span>(S)</span>
+						</div>
+						<div class="close btn_item">
+							<span>关闭</span><span>(C)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 引入jQuery -->
+    	<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script> -->
+    	<script type="text/javascript">
+    		// 定义服务器地址和请求类型
+    		var wsUrl = "ws://localhost:8080/WebSocketTest/chatServer";
+    		// 客户端与服务建立连接，连接成功后，发出ws.onopen事件
+    		var ws = new WebSocket(wsUrl);
+    		/** 
+    		* 连接成功后，提示浏览器客户端输入昵称 
+    		*/
+    		ws.onopen = function() {
+				var userName = prompt("请给自己取一个名字：");
+				// 发送用户名
+				ws.send(userName);
+			}
+    		
+    		/**
+    		* 客户端收到服务器发送的消息
+    		*/
+    		ws.onmessage = function(message) {
+				// 获取以后，在客户端显示
+				outputMessage.innerHTML = outputMessage.innerHTML + message.data;
+				// 获取outputMessage盒子
+				var msg = document.getElementById("outputMessage");
+				// 差值，溢出的高度 - 可视的高度
+				var distance = msg.scrollHeight - msg.offsetHeight;
+				// 将差值赋值给滚动条的高度
+				msg.scrollTop = distance;
+			}
+    		
+    		/**
+    		* 获取某个用户输入的聊天内容，并发送给服务端，让服务端广播给所有人
+    		*/
+    		function getMessage() {
+    			// 获取输入框信息
+				var inputMessage = document.getElementById("inputMessage").innerText;
+    			// 判断内容是否为空
+    			if (typeof(inputMessage) == "undefined") {
+					alert("请输入您要发送的信息");
+				} else {
+					// 获取到输入的消息，发送给服务端，并广播给所有用户
+					ws.send(inputMessage);
+					document.getElementById("inputMessage").innerText = "";
+				}
+			}
+    		
+    		/**
+    		* 当关闭页面的时候，或者用户退出的时候，会执行ws.close()方法
+    		*/
+    		window.onbeforeunload = function() {
+				ws.close();
+			}
+    		
+    		/**
+    		* 回车键发送消息
+    		*/
+    		document.onkeyup = function(e) {
+				if (e.keyCode == 13) {
+					getMessage();
+				}
+			}
+    		
+    	</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
